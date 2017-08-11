@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyExpress"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="MyExpress.MainPage"            
+             x:Name="Main"
+             >
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                0, 0, 0, 0
+            </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content >
+        <StackLayout Spacing="0" >
+            <StackLayout Orientation="Horizontal" HeightRequest="40" Padding="0,0,0,0" BackgroundColor="Orange" Spacing="0">
+
+                <controls:ImageButton BackgroundColor="Orange" TextColor="#fff" Orientation="ImageToLeft" WidthRequest="100" Text="&lt; back" IsVisible="False" Clicked="Back_Clicked" x:Name="ButtonBlack"  FontSize="Small">
+                    <controls:ImageButton.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <OnPlatform.iOS>
+                                -20,0,0,0
+                            </OnPlatform.iOS>
+                            <OnPlatform.Android>
+                                -20,0,0,0
+                            </OnPlatform.Android>
+                        </OnPlatform>
+                    </controls:ImageButton.Margin>
+                </controls:ImageButton>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Spacing="0">
+                    <controls:ImageButton BackgroundColor="Orange" TextColor="#fff" Orientation="ImageToRight"  Text="English/Myanmar"  Clicked="showOpition_Clicked" x:Name="ButtonOption" FontSize="Small">
+                        <controls:ImageButton.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <OnPlatform.iOS>
+                                    0,0,5,0
+                                </OnPlatform.iOS>
+                                <OnPlatform.Android>
+                                    0,0,0,0
+                                </OnPlatform.Android>
+                            </OnPlatform>
+                        </controls:ImageButton.Margin>
+                    </controls:ImageButton>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <WebView x:Name="myWebview" 
+                    Navigating="webOnNavigating"
+                    Navigated="webOnEndNavigating"  
+                    WidthRequest="1000"
+                     HeightRequest="1000"
+                   >
+                </WebView>
+                <Button Text="Reload" x:Name="ButtonReload" Clicked="btnRefresh_Clicked" IsVisible="False" WidthRequest="50" ></Button>
+            </StackLayout>
+            <ActivityIndicator x:Name="actIndicator2" VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>
